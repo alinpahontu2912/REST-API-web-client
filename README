@@ -1,0 +1,41 @@
+HHTP Protocol 
+
+- tried to simulate a user-server application, in which the user can add, delete, or get information 
+on books from a virtual library.
+- new users can be registered, if the username is not taken
+- a user will succesfully login if the password used corresponds to his username and the 
+username exists
+- the user can perform library tasks only if he has the 
+- in case f error, a specific messsage will be shown
+- when trying to enter library without being logged in, "Log in first" message
+will be shown
+- when trying to perform a library task, without the JWTtoken, "Enter library
+first" message will be displayed
+- when getting all books, if there are no books in the library, then
+no book will be shown
+- when getting a single book, if the book id does not exist, "Did not acces
+book" message will be shown
+- when trying to delete a book with an id nonexistent in the library, "Could 
+not delete books" message will be shown
+- when trying to logout without being logged in, "You are not even logged in"
+message will appear
+
+Based on stdin input, the following operations will take place:
+	- "exit" -> closes the application
+	- "register" -> allows the user to write a a username and password(a new account
+is created if the usernaame is not already taken)
+	- "login" ->  the user must write his credetntials to login to the virtual library
+	- "enter_library" -> generates a JWT token for the client so that he will be able
+to make changes to the library. 
+	- "get_books" -> shows basic information on every book added by the user
+	- "get_book" -> shows more in depth information about a book, based on its id(inputed 
+by the user)
+	- "add_book" -> allows the user to register a new bok to his library. (The request will
+be sent only if the data is correct. e.g. the page_count must be a number)
+	- "delete_book" -> based on inputted id, the user can delete a book from his library.
+	- "logout " -> the user gets logged out from the server and the JWT token and Log in
+cookie is deleted.
+
+Used Parson.c library to format strings into json format, since it was 
+recommended and the readme was easy to follow, so it was easy to understand
+how to use the already implemented functions. 
